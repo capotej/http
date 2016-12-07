@@ -29,7 +29,7 @@ before_deploy:
 - ls -l build/
 deploy:
   matrix:
-  - provider: packagecloud
+    provider: packagecloud
     username: capotej
     repository: tarantool16
     token: "${PACKAGECLOUD_TOKEN}"
