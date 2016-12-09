@@ -33,7 +33,7 @@ deploy:
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "${OS}/${DIST}"
-  package_glob: build/*.{deb,rpm,dsc,xz}
+  package_glob: build/*.{dsc,xz}
   skip_cleanup: true
   on:
     all_branches: true
