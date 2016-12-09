@@ -9,18 +9,18 @@ env:
   global:
   - PRODUCT=tarantool-http
   matrix:
-  # - OS=el DIST=6
-  # - OS=el DIST=7
-  # - OS=fedora DIST=23
-  # - OS=fedora DIST=24
-  # - OS=fedora DIST=25
+  - OS=el DIST=6
+  - OS=el DIST=7
+  - OS=fedora DIST=23
+  - OS=fedora DIST=24
+  - OS=fedora DIST=25
   - OS=ubuntu DIST=precise
-  # - OS=ubuntu DIST=trusty
-  # - OS=ubuntu DIST=xenial
-  # - OS=ubuntu DIST=yakkety
-  # - OS=debian DIST=wheezy
-  # - OS=debian DIST=jessie
-  # - OS=debian DIST=stretch
+  - OS=ubuntu DIST=trusty
+  - OS=ubuntu DIST=xenial
+  - OS=ubuntu DIST=yakkety
+  - OS=debian DIST=wheezy
+  - OS=debian DIST=jessie
+  - OS=debian DIST=stretch
 script:
 - git describe --long
 - git clone https://github.com/packpack/packpack.git packpack
@@ -36,7 +36,7 @@ deploy:
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "${OS}/${DIST}"
-  package_glob: build/*.{deb,dsc,xz}
+  package_glob: build/*.{deb,dsc,rpm}
   skip_cleanup: true
   on:
     all_branches: true
