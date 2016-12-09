@@ -29,11 +29,14 @@ before_deploy:
 - ls -l build/
 deploy:
   provider: packagecloud
+  edge:
+    source: computology/dpl
+    branch: debug_source_pkg
   username: capotej
   repository: tarantool16
   token: "${PACKAGECLOUD_TOKEN}"
   dist: "${OS}/${DIST}"
-  package_glob: build/*.{dsc,xz}
+  package_glob: build/*.{deb,dsc,xz}
   skip_cleanup: true
   on:
     all_branches: true
