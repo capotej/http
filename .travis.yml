@@ -28,16 +28,15 @@ script:
 before_deploy:
 - ls -l build/
 deploy:
-  matrix:
-    provider: packagecloud
-    username: capotej
-    repository: tarantool16
-    token: "${PACKAGECLOUD_TOKEN}"
-    dist: "${OS}/${DIST}"
-    package_glob: build/*.{deb,rpm}
-    skip_cleanup: true
-    on:
-      tags: true
+  provider: packagecloud
+  username: capotej
+  repository: tarantool16
+  token: "${PACKAGECLOUD_TOKEN}"
+  dist: "${OS}/${DIST}"
+  package_glob: build/*.{deb,rpm}
+  skip_cleanup: true
+  on:
+    all_branches: true
 notifications:
   email:
     recipients:
